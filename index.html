@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FIGHTGEAR • Roupas Esportivas de Alta Performance</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ff2e00;       /* Vermelho agressivo / energia */
+      --primary-dark: #d42400;
+      --dark: #0f0f0f;
+      --dark-2: #1a1a1a;
+      --gray: #aaaaaa;
+      --light: #f5f5f5;
+      --success: #00ff9d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--dark);
+      color: white;
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* Header / Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: rgba(15,15,15,0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+      transition: all 0.4s;
+    }
+
+    header.scrolled {
+      height: 70px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    }
+
+    nav {
+      max-width: 1440px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 3rem;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--primary), #ff6b00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      letter-spacing: 1.2px;
+    }
+
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: all 0.25s;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: white;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Hero principal */
+    .hero {
+      height: 100vh;
+      min-height: 780px;
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+                  url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=90') center/cover no-repeat;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      padding: 0 1.5rem;
+    }
+
+    .hero-badge {
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 4px;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      animation: pulse 2.5s infinite;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3.8rem, 9vw, 8.2rem);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -4px;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #fff, var(--primary), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      color: #ccc;
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1.1rem 2.8rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: all 0.3s;
+      border: 2px solid var(--primary);
+    }
+
+    .btn:hover {
+      background: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(255,46,0,0.45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border-color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    /* Animação simples */
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50%     { opacity: 0.6; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; } /* aqui você colocaria menu hamburguer */
+      .hero h1 { font-size: 4.8rem; }
+      .hero p { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">FIGHTGEAR</div>
+    
+    <div class="nav-links">
+      <a href="#" class="active">LANÇAMENTOS</a>
+      <a href="#">BJJ / JIU-JITSU</a>
+      <a href="#">MMA / LUVA</a>
+      <a href="#">FUTEBOL</a>
+      <a href="#">BASQUETE</a>
+      <a href="#">NATAÇÃO</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">NOVA COLEÇÃO 2025</div>
+    <h1>SEJA O MELHOR <br>EM QUALQUER LUTA</h1>
+    <p>Roupas de compressão, rashguards, shorts, kimonos premium, streetwear de alta performance</p>
+    
+    <div style="margin-top: 2.5rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+      <a href="#" class="btn">COMPRAR AGORA</a>
+      <a href="#" class="btn btn-outline">VER COLEÇÃO</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Efeito simples de scroll no header
+window.addEventListener('scroll', () => {
+  document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
+</body>
+</html>
